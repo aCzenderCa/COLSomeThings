@@ -1,0 +1,8 @@
+{
+  "name": "ZenderCOLSomeThings",
+  "version_number": "0.0.1",
+  "description": "Load the full SourceHanSerifSC-Light.otf file to fix the incomplete display of follower names",
+  "dependencies": [
+    "BepInEx-BepInExPack_CultOfTheLamb-5.4.21"
+  ]
+}

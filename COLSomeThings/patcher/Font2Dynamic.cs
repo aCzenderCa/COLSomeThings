@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using HarmonyLib;
 using TMPro;
-using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace COLSomeThings.patcher
 {
@@ -12,11 +13,9 @@ namespace COLSomeThings.patcher
         [HarmonyPrefix, HarmonyPatch(typeof(TMP_FontAsset), "Awake")]
         public static void MakeItDynamic(TMP_FontAsset __instance)
         {
-            if (__instance.name.StartsWith("Chinese(Simplified"))
-            {
-                __instance.fallbackFontAssetTable ??= new List<TMP_FontAsset>();
-                __instance.fallbackFontAssetTable.Add(COLSomeThingsModMainRuntime.ScFontAsset);
-            }
+            if (!__instance.name.StartsWith("Chinese")) return;
+            __instance.fallbackFontAssetTable ??= new List<TMP_FontAsset>();
+            __instance.fallbackFontAssetTable.Add(COLSomeThingsModMainRuntime.ScFontAsset);
         }
 
         [HarmonyPrefix, HarmonyPatch(typeof(DataManager), nameof(DataManager.RemoveUnlockedFollowerSkin))]

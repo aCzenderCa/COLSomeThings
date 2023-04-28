@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace COLSomeThings
 {
-    [BepInPlugin("zender.COLSomeThingsModMainRuntime", "COLSomeThingsMod", "0.0.1")]
+    [BepInPlugin("zender.COLSomeThingsModMainRuntime", "COLSomeThingsMod", "0.0.2")]
     public class COLSomeThingsModMainRuntime : BaseUnityPlugin
     {
         public static readonly Harmony HarmonyInstance = new("zender.COLSomeThingsModMainRuntime");
